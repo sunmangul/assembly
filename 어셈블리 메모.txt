@@ -100,4 +100,15 @@ ROM : 한 번 만들면 회로 변경이 불가능하고 읽는 것만 가능
 =한 바이트를 설정할 수 있는 스위치가 32개 있다=경우의 수 2^32개
 =>4GB의 메모리 공간 사용  
 
-[]안에 주소를 써서 공간 지정(16진수)
+[]안에 주소를 써서 메모리 공간 지정(16진수)
+mov [402000], al >> MOV BYTE PTR DS:[402000], AL이 됨 -(실행)-> 402000주소 번지에 AL의 값이 들어감
+mov cl, [402000] >> MOV AL, BYTE PTR DS:[402000]이 됨 -(실행)-> CL에 402000주소 번지의 값이 들어감
+이런식으로 메모리 안에 값을 넣거나 메모리의 값을 레지스터에 넣을 수 있으나 메모리에서 메모리로는 X
+
+= 레지스터에 메모리의 값을 임의로 넣어두고 다른 메모리에 갑을 넣어야 함
+
+DWORD PTR DS, WORD PTR DS, BYTE PTR DS
+ptr = pointer
+DWORD = 4byte WORD=2byte BYTE=1byte (+QWORD = 8byte : 64bit에서 씀)
+WORD면 32bit 기본인 4byte가 아닌 이유는 16bit 때부터 써오던 표기라 그대로 2byte로 쓰고, double word인
+DWORD라는 4byte 공간이 있다
