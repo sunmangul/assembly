@@ -1,0 +1,63 @@
+JA(Jump if (unsigned) above) : CF = 0 and ZF = 0
+
+JAE(Jump if (unsigned) above or equal) : CF = 0
+
+JB(Jump if (unsigned) below) : CF = 1
+
+JBE(Jump if (unsigned) below or equal) : CF = 1 or ZF = 1
+
+JC(Jump if carry flag set) : CF = 1
+
+JCXZ(Jump if CX is 0) : CX = 0
+
+JE(Jump if equal) : ZF = 1
+
+JECXZ(Jump if ECX is 0) : ECX = 0
+
+JG(Jump if (signed) greater) : ZF = 0 and SF = 0
+
+JGE(Jump if (singed) greater of equal) : SF = OF
+
+JL(Jump if (signed) less) : SF != OF
+
+JLE(Jump if (signed) less or equal) : ZF = 1 and SF != OF
+
+JNA(Jump if (unsigned) not above) : CF = 1 or ZF = 1
+
+JNAE(Jump if (unsigned) not above or equal) : CF = 1
+
+JNB(Jump if (unsigned) not below) : CF = 0
+
+JNBE(Jump if (unsigned) not below or equal) : CF = 0 and ZF = 0
+
+JNC(Jump if carry flag not set) : CF = 0
+
+JNE(Jump if not equal) : ZF = 0
+
+JNG(Jump if (signed) not greater : ZF = 1 or SF != OF
+
+JNGE(Jump if (signed) not greater or equal) : SF != OF
+
+JNL(Jump if (signed) not less) : SF = OF
+
+JNLE(Jump if (signed) not less or equal) : ZF = 0 and SF = OF
+
+JNO(Jump if overflow flag not set) : OF = 0
+
+JNP(Jump if parity flag not set) : PF = 0
+
+JNS(Jump if sign flag not set) : SF = 0
+
+JNZ(Jump if not zero) : ZF = 0
+
+JO(Jump if overflow flag set) : OF = 1
+
+JP(Jump if parity flag set) : PF = 1
+
+JPE(Jump if parity is equal) : PF = 1
+
+JPO(Jump if parity is odd) : PF = 0
+
+JS(Jump if sign flag is set) : SF = 1
+
+JZ(Jump is zero) : ZF = 1
