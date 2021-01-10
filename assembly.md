@@ -35,7 +35,7 @@
 > **ESP**ㅤ:ㅤ스택프레임의 스택 가장 끝 지점 주소 저장(값이 ±4byte씩 이동<br/>
 > **EBP**ㅤ:ㅤ스택프레임의 스택 시작 지점 주소 지정(스택프레임 소멸이 아니면 값 변동 X)<br/>-> 현재 스택프레임이 소멸되면 이전 스택프레임의 시작 지점 주소 저장<br/>
 > **ESI**ㅤ:ㅤ데이터 조작, 복사 시 소스데이터 주소 저장(EDI에 데이터를 넘길 때 주로 사용)<br/>
-> **EDI**ㅤ:ㅤ복사 시 목적지의 주소가 저장되는데 주로 ESI가 가르키는 주소 저장<br/>
+> **EDI**ㅤ:ㅤ복사 시 목적지의 주소가 저장되는데 주로 ESI가 가르키는 주소 저장<br/> 
 
 
 ### 상태 레지스터
@@ -78,18 +78,21 @@
 > 401011 - C 라고 표현할 수 있다. 그래서 결론은 401005의 주소를 가르키는 형식
 
 > - [ **증감연산** ]<br/>
->   - [ **INC, DEC** ]<br/>
->   INCREMENTㅤ:ㅤ1씩 값 증가<br/>
->   DECREMENTㅤ:ㅤ1씩 값 감소<br/>
->```
-> inc reg/mem | dec reg/mem
->```
->   - [ **ADD, SUB** ]<br/>
->   ADDITIONㅤ:ㅤ더하기<br/>
->   SUBTRATIONㅤ:ㅤ빼기<br/>
->```
-> add reg/mem, reg/mem | sub reg/mem, reg/mem
->```
+>> - [ **INC, DEC** ]<br/>
+>>   INCREMENTㅤ:ㅤ1씩 값 증가<br/>
+>>   DECREMENTㅤ:ㅤ1씩 값 감소<br/>
+>>```
+> >inc reg/mem | dec reg/mem
+>>```
+>
+>>   - [ **ADD, SUB** ]<br/>
+>>   ADDITIONㅤ:ㅤ더하기<br/>
+>>   SUBTRATIONㅤ:ㅤ빼기<br/>
+>>```
+>> add reg/mem, reg/mem | sub reg/mem, reg/mem
+>>```
+>>
+>ㅤ
 
 > - [ **CMP** ]<br/>
 > compareㅤ:ㅤA와 B의 값을 빼기 연산으로 같은지 비교
@@ -98,8 +101,27 @@
 >```
 
 > - [ **J명령어 모음** ]<br/>
+> ##### ※jmp_flag.txt 참조
 > jmp에 조건이 있는 명령어들로 C 언어에서는 if같은 조건식이 되는 명령어들<br/>
->   - [ **jz** ] 
+>   - [ **JZ ( JE )** ]<br/>
+> jump if zero( jump if equal)ㅤ:ㅤz값이 1일 경우 이동<br/>
+> 조건식ㅤ:ㅤa == b
+>   - [ **JNZ ( JNE )** ]<br/>
+> jump if not zero( jump if not equal)ㅤ:ㅤz값이 0일 경우 이동<br/>
+> 조건식ㅤ:ㅤa != b
+>   - [ **JA, JB** ]<br/>
+> jump if [ above, below ]ㅤ:ㅤja는 c값이 1일 때, jb는 c 이 0일 때 이동 + ( z = 0 )<br/>
+> 조건식ㅤ:ㅤa > b | a < b
+>   - [ **JEA, JEB** ]<br/>
+> jump if equal [ above, below ]ㅤ:ㅤjea는 c값이 1일 때, jeb는 c값이 0일 때 이동<br/>
+> 조건식ㅤ:ㅤa >= b | a <= b
+>   - [ **JNA, JNB** ]<br/>
+> jump if not [ above, below ]ㅤ:ㅤja는 c값이 0일 때, jb는 c값이 1일 때 이동<br/>
+> 조건식ㅤ:ㅤa <= b | a >= b
+>   - [ **JG, JL** ]<br/>
+> jump if [ greater, less ]ㅤ:ㅤjg는 s값과 c값이 같을 때, jl은 다를 때 이동 + ( z = 0 )
+>   - [ **]
+
 - - -
 ## 짜투리 이론
 > - **레지스터 구성**<br/>
