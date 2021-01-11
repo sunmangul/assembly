@@ -357,30 +357,30 @@ ex) mov eax, 1
 eax의 값은 3
 
 쓰는 상황은 4byte를 넘어서 8byte의 연산을 할 때 올림이 발생하면 사용함
-ex) mov dword ptr 402000, 2a05f200      //낮은 자리 4byte를 앞에 주소에 넣고
-    mov dword ptr 402004, 1             //높은 자리 4byte의 값을 뒤에 넣어줌
-    mov dword ptr 402008, 65a0bc00
-    mov dword ptr 40200c, 1
-    mov eax, 402000         //낮은 자리 4byte씩 연산
-    add eax, 402008
-    mov 402010, eax         //402010에 낮은 자리수 연산 결과 저장
-    mov eax, 402004         //높은 자리 4byte 연산인데 낮은 자리에서 carry가 
-    adc eax, 40200c         //발생 했다면, 캐리까지 더해줌(하지만 여기선 아님)
-    mov 402014, eax
+ex) mov dword ptr [402000], 2a05f200      //낮은 자리 4byte를 앞에 주소에 넣고
+    mov dword ptr [402004], 1             //높은 자리 4byte의 값을 뒤에 넣어줌
+    mov dword ptr [402008], 65a0bc00
+    mov dword ptr [40200c], 1
+    mov eax, [402000]         //낮은 자리 4byte씩 연산
+    add eax, [402008]
+    mov [402010], eax         //402010에 낮은 자리수 연산 결과 저장
+    mov eax, [402004]         //높은 자리 4byte 연산인데 낮은 자리에서 carry가 
+    adc eax, [40200c]         //발생 했다면, 캐리까지 더해줌(하지만 여기선 아님)
+    mov [402014], eax
 이런 8byte 연산을 하기 위해 adc가 있음
 
 
 sbb : sub brrow
-ex) mov dword ptr 402000, 20000000      //낮은 자리 4byte를 앞에 주소에 넣고
-    mov dword ptr 402004, 2             //높은 자리 4byte의 값을 뒤에 넣어줌
-    mov dword ptr 402008, 90000000
-    mov dword ptr 40200c, 1
-    mov eax, 402000         //낮은 자리 4byte씩 연산
-    sub eax, 402008
-    mov 402010, eax         //402010에 낮은 자리수 연산 결과 저장
-    mov eax, 402004         //높은 자리 4byte 연산인데 낮은 자리에서 빌림이 
-    sbb eax, 40200c         //발생 했다면, 그 만큼 빼줌
-    mov 402014, eax
+ex) mov dword ptr [402000], 20000000      //낮은 자리 4byte를 앞에 주소에 넣고
+    mov dword ptr [402004], 2             //높은 자리 4byte의 값을 뒤에 넣어줌
+    mov dword ptr [402008], 90000000
+    mov dword ptr [40200c], 1
+    mov eax, [402000]         //낮은 자리 4byte씩 연산
+    sub eax, [402008]
+    mov [402010], eax         //402010에 낮은 자리수 연산 결과 저장
+    mov eax, [402004]         //높은 자리 4byte 연산인데 낮은 자리에서 빌림이 
+    sbb eax, [40200c]         //발생 했다면, 그 만큼 빼줌
+    mov [402014], eax
 빌리는 경우가 발생했으 때 1을 추가로 빼주기 위해 있는 명령어임
 
 만약 adc나 혹은 sbb가 없을 경우 120000000 + 1F0000000의 결과가 210000000이 되고,
