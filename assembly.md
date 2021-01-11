@@ -119,8 +119,24 @@
 > jump if not [ above, below ]ㅤ:ㅤja는 c값이 0일 때, jb는 c값이 1일 때 이동<br/>
 > 조건식ㅤ:ㅤa <= b | a >= b
 >   - [ **JG, JL** ]<br/>
-> jump if [ greater, less ]ㅤ:ㅤjg는 s값과 c값이 같을 때, jl은 다를 때 이동 + ( z = 0 )
->   - [ ** ** ]
+> jump if [ greater, less ]ㅤ:ㅤjg는 s값과 c값이 같을 때, jl은 다를 때 이동 + ( z = 0 )<br/>
+> 조건식ㅤ:ㅤa > b | a < b<br/>
+> ja, jb와 차이점은 jg, jl은 부호가 있는 연산 결과로 이동 
+>   - [ **JO, JS** ]<br/>
+> jump if [ overflow, sign ]ㅤ:ㅤjo는 o값이 1일 때, js는 s값이 1일 때 이동<br/>
+
+> - [ **ADC, SBB** ]<br/>
+> addition with carryㅤ:ㅤ8byte연산에서 자리올림이 발생했을 때를 위해 사용<br/>
+> subtration with borrowㅤ:ㅤ8byte연산에서 빌림이 발생했을 때를 위해 사용<br/>
+>```
+>adc reg/mem, reg/mem | sbb reg/mem, reg/mem
+>```
+
+> - [ **PUSH, POP** ]<br/>
+> pushㅤ:ㅤ스택에 자료 입력<br/>
+> popㅤ:ㅤ스택에 쌓인 자료 출력<br/>
+> 함수 사이에서 서로를 호출하는 경우 시작과 종료를 알기 쉽게하기 위해 사용<br/>
+>  
 
 - - -
 ## 짜투리 이론
